@@ -1,40 +1,39 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-#include<stdlib.h>
+#include<cmath>
 using namespace std;
 
-#define A 65 // номер A в таблице ASCII
-#define Z 90 // номер Z в таблице ASCII
-#define AS 97 // номер a в таблице ASCII
-#define ZS 122 // номер z в таблице ASCII
-#define R 25 // количество символов в латинском алфавите
-
-void etf(string str); // функция enter to file
+void etf(string s); // функция enter to file
 void zeroAndOne(string str); // шифровка нулями и еденицами
 void shifrAtabash(string st); // шифр Атабаш
-
+void matrixShifr(string sp); // Матричная шифровка
 
 int main() {
+
     string str;
-    int l;
 
     getline(cin, str); //Ввод текста из консоли
 
-    etf(str);
+    etf(str); // Запись строки в файл
 
-    shifrAtabash(str);
+    //zeroAndOne(str); // использование шифра нулями и еденицами
+
+    //shifrAtabash(str); // использование шифра Атабаша
+
+    matrixShifr(str);
 
     return 0;
 }
 
-void etf(string s) {
+void etf (string s)  {
     ofstream f;
     f.open("C:/Users/Mazafacker/CLionProjects/untitled1/enter_file.txt", ofstream::app);
     if (!f.is_open()) {
         cout << "Error of opening file!!!";
+        exit(1);
     }
-    f << s << "\n";
+    f << s << endl;
     f.close();
 }
 
@@ -60,21 +59,59 @@ void zeroAndOne(string sz) {
 
 void shifrAtabash(string st){
     string res; // результат кодировки
-    int val, n;
+    char ch;
+    char val, n, t;
 
     for (int i = 0; i < st.size(); i++) { // обработка строки посимвольно
-        n = int(st[i]);
-        if ((n <= Z) and (n >= A)){
-            val = n - A; //разница между номером символа и началом алфавита
-            res[i] = int(Z - n);
-        } else if(((n <= ZS) and (n >= AS))){
-            val = n - AS; //разница между номером символа и началом алфавита
-            res[i] = int(ZS - n);
-        } else {
-            res[i] = st[i];
+        ch = st[i];
+        n = ch;
+        if ((n <= 'Z') and (n >= 'A')){
+            val = n - 'A'; //разница между номером символа и началом алфавита
+            t = 'Z' - val;
+            res.push_back(t);
+        } else{
+            if(((n <= 'z') and (n >= 'a'))){
+                val = n - 'a'; //разница между номером символа и началом алфавита
+                t = 'z' - val;
+                res.push_back(t);
+            } else {
+                char t = st[i];
+                res.push_back(t);
+            }
         }
     }
     etf(res);
 }
+
+void matrixShifr(string sp) {
+    string key1, key2;
+    int n, len, k = 0;
+
+
+    len = sp.size(); //длинна строки
+
+    if ((sqrt(len) - (int)sqrt(len)) > 0.001){
+        n = sqrt(len) + 1;
+    } else n = sqrt(len);
+    cout << "Enter two keys with lenght " << n << " : " << endl;
+    cin >> key1 >> key2;
+    char list[n+1][n+1];
+
+
+    for (int i = 1; i <= n; i++){ // заполниение матрицы строкой
+        for(int j = 1; j <= n; j++){
+            list[i][j] = sp[k];
+            k++;
+        }
+    }
+    for (int i = 1; i <=n; i ++) list[0][i] = key1[i-1]; // заполнение 1ой строки ключом
+    for (int i = 1; i <=n; i ++) list[i][0] = key2[i-1]; // заполнение 1ого столбца ключом
+
+
+}
+
+
+
+
 
 
