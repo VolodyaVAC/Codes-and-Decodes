@@ -86,6 +86,7 @@ void shifrAtabash(string st){
 void matrixShifr(string sp) {
     string key1, key2;
     int n, len, k = 0;
+    char ch, chn;
 
 
     len = sp.size(); //длинна строки
@@ -106,8 +107,9 @@ void matrixShifr(string sp) {
     }
     for (int i = 1; i <=n; i ++) list[0][i] = key1[i-1]; // заполнение 1ой строки ключом
     for (int i = 1; i <=n; i ++) list[i][0] = key2[i-1]; // заполнение 1ого столбца ключом
+    list[0][0] = NULL;
 
-
+    // доделать сортировку, вывод
 }
 
 
