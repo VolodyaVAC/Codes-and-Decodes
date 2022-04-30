@@ -6,12 +6,12 @@
 using namespace std;
 
 void etf(string s); // функция enter to file
-string eff(); // функция enter from file
 void codeAtabash(string st); // шифр Атабаш (сделана)
-void deCodeAtabash(string sh); // Дешифратор шифра Атабаша (сделано)
+void deCodeAtabash(); // Дешифратор шифра Атабаша (сделано)
 void matrixCode(string sp); // Матричная шифровка (вроде сделана)
-void matrixDeCode(string sf); //Матричная Дешифровка
+void matrixDeCode(); //Матричная Дешифровка
 void codeXOR(string sx);
+void deCodeXOR();
 
 int main() {
 
@@ -43,19 +43,6 @@ void etf (string s)  {
     f.close();
 }
 
-string eff(){
-    string sy;
-    ifstream file;
-    file.open("C:/Users/Mazafacker/CLionProjects/untitled1/enter_file.txt");
-    if (!file.is_open()) {
-        cout << "Error of opening file in eff!!!";
-        exit(1);
-    }
-    while (!file.eof()) { getline(file, sy); }
-    cout << sy;
-    file.close();
-}
-
 void codeAtabash(string st){
     string res; // результат кодировки
     char ch;
@@ -80,7 +67,6 @@ void codeAtabash(string st){
         }
     }
     etf(res);
-    eff();
 }
 
 void matrixCode(string sp) {
@@ -172,14 +158,13 @@ void matrixCode(string sp) {
     cout << res << endl;
 
     etf(res);
-
-    matrixDeCode(res);
 }
 
-void deCodeAtabash(string sh){
-    string res; // результат кодировки
+void deCodeAtabash(){
+    string sh, res; // результат кодировки
     char ch;
     char val, n, t;
+    cin >> sh;
 
     for (int i = 0; i < sh.size(); i++) { // обработка строки посимвольно
         ch = sh[i];
@@ -202,10 +187,10 @@ void deCodeAtabash(string sh){
     etf(res);
 }
 
-void matrixDeCode(string sf){
-    string key1, key2, res, key1r, key2r;
+void matrixDeCode(){
+    string key1, key2, res, key1r, key2r, sf;
 
-    cin >> key1 >> key2;
+    cin >> sf >> key1 >> key2;
 
     key1r = key1; key2r = key2;
 
@@ -258,32 +243,39 @@ void matrixDeCode(string sf){
 
 void codeXOR(string sx){
     bool s, k;
-    string key, res;
+    string key;
+    vector <int> res;
+    int n;
     cout << sx.size() << endl; // ввод ключа
     do{
         cin >> key;
     }while (key.size() != sx.size());
-    /*
-    for( char c : sx ) {
-        bitset<8> bs(c);\
-        cout << bs; // строка в бинарный код
-    }
-    cout << endl;
-    for( char c : key ) {
-        bitset<8> bs(c);\
-        cout << bs; // строка в бинарный код
-    }
-    */
 
     for (int i = 0; i < sx.size(); i++){
         char ch, c, h;
         c = sx[i]; h = key[i];
         ch = c ^ h;
-        res.push_back(ch);
+        n = (int)ch;
+        res.push_back(n);
     }
-    cout << res;
+
+    for (int i = 0; i < res.size(); i++){
+        cout << res[i] << ' ';
+    }
 }
 
+void deCodeXOR(){
+    vector <int> res;
+    int n;
+    string sg;
+
+    for (int i = 0; i < n; i++){
+        cin >> n;
+        res.push_back(n);
+    }
+
+
+}
 
 
 
