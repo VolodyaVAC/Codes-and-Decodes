@@ -6,12 +6,13 @@
 using namespace std;
 
 void etf(string s); // функция enter to file
+void etfv(vector <int> t);
 void codeAtabash(string st); // шифр Атабаш (сделана)
 void deCodeAtabash(); // Дешифратор шифра Атабаша (сделано)
 void matrixCode(string sp); // Матричная шифровка (вроде сделана)
 void matrixDeCode(); //Матричная Дешифровка
-void codeXOR(string sx);
-void deCodeXOR();
+void codeXOR(string sx); // Шифр Вижнера (сделано)
+void deCodeXOR(); // Дешифровка Вижнера (сделано)
 
 int main() {
 
@@ -27,8 +28,6 @@ int main() {
 
     codeXOR(str);
 
-    //eff();
-
     return 0;
 }
 
@@ -40,6 +39,19 @@ void etf (string s)  {
         exit(1);
     }
     f << s << endl;
+    f.close();
+}
+
+void etfv(vector <int> t){
+    ofstream f;
+    f.open("C:/Users/Mazafacker/CLionProjects/untitled1/enter_file.txt", ofstream::app);
+    if (!f.is_open()) {
+        cout << "Error of opening file in eof!!!";
+        exit(1);
+    }
+    for (int i = 0; i < t.size(); i++){
+        f << t[i] << ' ';
+    } f << endl;
     f.close();
 }
 
@@ -245,36 +257,49 @@ void codeXOR(string sx){
     bool s, k;
     string key;
     vector <int> res;
+    char ch, c, h;
     int n;
+
     cout << sx.size() << endl; // ввод ключа
     do{
         cin >> key;
     }while (key.size() != sx.size());
 
     for (int i = 0; i < sx.size(); i++){
-        char ch, c, h;
+
         c = sx[i]; h = key[i];
-        ch = c ^ h;
+        ch = h ^ c;
         n = (int)ch;
         res.push_back(n);
     }
 
-    for (int i = 0; i < res.size(); i++){
-        cout << res[i] << ' ';
-    }
+    etfv(res);
 }
 
 void deCodeXOR(){
     vector <int> res;
-    int n;
-    string sg;
+    int n, l;
+    string sg, key;
+    char ch, c, h;
 
-    for (int i = 0; i < n; i++){
+    cin >> l;
+
+    for (int i = 0; i < l; i++){
         cin >> n;
         res.push_back(n);
     }
+    do{
+        cin >> key;
+    }while (key.size() != l);
 
+    for (int i = 0; i < l; i++){
+        c = key[i];
+        h = (char)res[i];
+        ch = c ^ h;
+        sg.push_back(ch);
+    }
 
+    for (int i = 0; i < sg.size(); i++) cout << sg[i];
 }
 
 
