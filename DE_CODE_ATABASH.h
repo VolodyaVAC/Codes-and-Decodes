@@ -8,7 +8,7 @@
 
 class DE_CODE_ATABASH{
 public:
-    stutic void deCodeAtabash(){
+    static void deCodeAtabash(){
         string sh, res; // результат кодировки
         char ch;
         char val, n, t;
@@ -32,7 +32,7 @@ public:
                 }
             }
         }
-        etf(res);
+        ENTER::etf(res);
     }
 };
 #endif //UNTITLED1_DE_CODE_ATABASH_H

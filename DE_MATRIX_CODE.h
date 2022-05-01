@@ -9,7 +9,7 @@
 
 class DE_MATRIX_CODE {
 public:
-    stutic void matrixDeCode(){
+    static void matrixDeCode(){
         string key1, key2, res, key1r, key2r, sf;
 
         cin >> sf >> key1 >> key2;

@@ -8,26 +8,27 @@
 
 class DE_CODE_XOR{
 public:
-    static void deCodeXOR(){
-        vector <int> res;
+    static void deCodeXOR() {
+        vector<int> res;
         int n, l;
         string sg, key;
         char ch, c, h;
         cin >> l;
-        for (int i = 0; i < l; i++){
+        for (int i = 0; i < l; i++) {
             cin >> n;
             res.push_back(n);
         }
-        do{
+        do {
             cin >> key;
-        }while (key.size() != l);
-        for (int i = 0; i < l; i++){
+        } while (key.size() != l);
+        for (int i = 0; i < l; i++) {
             c = key[i];
-            h = (char)res[i];
+            h = (char) res[i];
             ch = c ^ h;
             sg.push_back(ch);
         }
         cout << sg;
+    }
 };
 
-#endif //UNTITLED1_DE_CODE_ATABASH_H
+#endif //UNTITLED1_DE_CODE_XOR_H

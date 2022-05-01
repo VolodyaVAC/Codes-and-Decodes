@@ -6,7 +6,8 @@
 #define UNTITLED1_MATRIX_CODE_H
 #include "includes.h"
 class MATRIX_CODE{
-    public static void matrixCode(string sp) {
+public:
+    static void matrixCode(string sp) {
         string key1, key2, res;
         int n, len, k = 0;
 
@@ -94,7 +95,7 @@ class MATRIX_CODE{
         }
         cout << res << endl;
 
-        etf(res);
+        ENTER::etf(res);
     }
 };
 #endif //UNTITLED1_MATRIX_CODE_H

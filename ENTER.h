@@ -20,7 +20,7 @@ public:
         f.close();
     }
 
-    stutic void etfv(vector <int> t){
+    static void etfv(vector <int> t){
         ofstream f;
         f.open("C:/Users/Mazafacker/CLionProjects/untitled1/enter_file.txt", ofstream::app);
         if (!f.is_open()) {
