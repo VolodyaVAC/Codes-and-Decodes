@@ -1,17 +1,13 @@
-#include<iostream>
-#include<string>
-#include<fstream>
-#include<cmath>
-#include<vector>
+#include "includes.h"
 using namespace std;
 
 void etf(string s); // функция enter to file
 void etfv(vector <int> t);
-void codeAtabash(string st); // шифр Атабаш (сделана)
+//void codeAtabash(string st); // шифр Атабаш (сделана)
 void deCodeAtabash(); // Дешифратор шифра Атабаша (сделано)
 void matrixCode(string sp); // Матричная шифровка (вроде сделана)
 void matrixDeCode(); //Матричная Дешифровка
-void codeXOR(string sx); // Шифр Вижнера (сделано)
+//void codeXOR(string sx); // Шифр Вижнера (сделано)
 void deCodeXOR(); // Дешифровка Вижнера (сделано)
 
 int main() {
@@ -22,15 +18,15 @@ int main() {
 
     etf(str); // Запись строки в файл
 
-    //codeAtabash(str);
+    //codeAtabach(str);
 
     //matrixCode(str);
 
-    codeXOR(str);
+    codeXOR::codeXor(str);
 
     return 0;
 }
-
+/*
 void etf (string s)  {
     ofstream f;
     f.open("C:/Users/Mazafacker/CLionProjects/untitled1/enter_file.txt", ofstream::app);
@@ -251,8 +247,8 @@ void matrixDeCode(){
         }
         cout << endl;
     }
-} //закончить матричную декодировку и найти ошибку в кодировке
-
+}*/ //закончить матричную декодировку и найти ошибку в кодировке
+/*
 void codeXOR(string sx){
     bool s, k;
     string key;
@@ -275,7 +271,7 @@ void codeXOR(string sx){
 
     etfv(res);
 }
-
+*/
 void deCodeXOR(){
     vector <int> res;
     int n, l;
