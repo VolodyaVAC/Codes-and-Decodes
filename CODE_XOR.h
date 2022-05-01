@@ -2,12 +2,12 @@
 // Created by Mazafacker on 01.05.2022.
 //
 
-#ifndef UNTITLED1_CODEXOR_H
-#define UNTITLED1_CODEXOR_H
+#ifndef UNTITLED1_CODE_XOR_H
+#define UNTITLED1_CODE_XOR_H
 #include "includes.h"
 
 using namespace std;
-class codeXOR{
+class CODE_XOR{
 public:
     static void codeXor(string sx){
         bool s, k;
@@ -33,4 +33,4 @@ public:
     }
 };
 
-#endif //UNTITLED1_CODEXOR_H
+#endif //UNTITLED1_CODE_XOR_H

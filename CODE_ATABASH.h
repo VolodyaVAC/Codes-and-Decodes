@@ -2,13 +2,13 @@
 // Created by Mazafacker on 01.05.2022.
 //
 
-#ifndef UNTITLED1_CODEATABASH_H
-#define UNTITLED1_CODEATABASH_H
+#ifndef UNTITLED1_CODE_ATABASH_H
+#define UNTITLED1_CODE_ATABASH_H
 #include "includes.h"
 
-class codeAtabash {
+class CODE_ATABASH {
 public:
-    void codeAtabach(string st){
+    static void codeAtabash(string st){
         string res; // результат кодировки
         char ch;
         char val, n, t;
@@ -36,4 +36,4 @@ public:
 };
 
 
-#endif //UNTITLED1_CODEATABASH_H
+#endif //UNTITLED1_CODE_ATABASH_H

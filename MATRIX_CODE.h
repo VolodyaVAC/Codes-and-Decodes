@@ -6,7 +6,7 @@
 #define UNTITLED1_MATRIX_CODE_H
 #include "includes.h"
 class MATRIX_CODE{
-    public void matrixCode(string sp) {
+    public static void matrixCode(string sp) {
         string key1, key2, res;
         int n, len, k = 0;
 
